@@ -26,6 +26,7 @@ const app = express();
 
 //middelwares
 app.use(cors());
+app.use(cors({ origin: 'https://celadon-zuccutto-f9b926.netlify.app/' }));
 app.use(express.json());
 app.use(morgan("dev"));
 // Use multer middleware to handle file uploads
