@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoute.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cors from "cors";
+import path from 'path';
 import ticketsRouter from './routes/ticketsRoutes.js';
 import cartRouters from './routes/cartRoutes.js';
 
@@ -23,10 +24,10 @@ connectDB();
 
 //rest object
 const app = express();
-
 //middelwares
-app.use(cors());
-app.use(cors({ origin: 'https://celadon-zuccutto-f9b926.netlify.app/' }));
+// app.use(cors());
+// app.use(cors({ origin: 'https://celadon-zuccutto-f9b926.netlify.app/' }));
+app.use(express.static(path.join('./build')));
 app.use(express.json());
 app.use(morgan("dev"));
 // Use multer middleware to handle file uploads
